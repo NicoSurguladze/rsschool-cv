@@ -54,12 +54,12 @@ I am currently learning Java, Javascript, HTML, CSS and Angular. My goal is to b
 
 ## Education
 
-- **codecademy** Learn Java (https://www.codecademy.com/learn/learn-java)
-- **Udemy** The Complete Java Development Bootcamp (https://www.udemy.com/course/the-complete-java-development-bootcamp/)
-- **Udemy** Java from Zero to First Job (https://www.udemy.com/course/java-development-for-beginners-learnit/)
-- **codacademy** Learn HTML (https://www.codecademy.com/learn/learn-html)
-- **FreeCodeCamp** Responsive Web Design (https://www.freecodecamp.org/learn/responsive-web-design/)
-- **Rolling Scopes School** JavaScript/Front-end Mentoring Program (https://rs.school/js-en/)
+- **codecademy** Learn Java [Learn Java](https://www.codecademy.com/learn/learn-java)
+- **Udemy** The Complete Java Development Bootcamp [Java Bootcamp](https://www.udemy.com/course/the-complete-java-development-bootcamp/)
+- **Udemy** Java from Zero to First Job [Java from zero](https://www.udemy.com/course/java-development-for-beginners-learnit/)
+- **codacademy** Learn HTML [Learn Html](https://www.codecademy.com/learn/learn-html)
+- **FreeCodeCamp** Responsive Web Design [Responsive Web Design](https://www.freecodecamp.org/learn/responsive-web-design/)
+- **Rolling Scopes School** JavaScript/Front-end Mentoring Program [RS school](https://rs.school/js-en/)
 
 ***
 
