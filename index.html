@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Nikoloz Surguladze</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div id="main">
+            <h1>Nikoloz Surguladze</h1>
+            <h2>Contact</h2>
+            <ul id="contact">
+                <li>Phone: <span class="redItalic">+955 544 445 371</span></li>
+                <li>E-mail: <span class="redItalic">nicosurguladze@gmail.com</span></li>
+            </ul>
+            <h2>Summary</h2>
+            <p>I am currently learning Java, Javascript, HTML, CSS and Angular.<br> My goal is to become a full-stack developer.</p>
+            <h2>Skills</h2>
+            <ul id="skills">
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>Git, GitHub</li>
+                <li>VS Code</li>
+            </ul>
+            <h2>Code Example</h2>
+            <code>
+               <pre>
+                public class Main {
+
+    
+                    static String ACCOUNTS_FILE = "src/main/data/accounts.txt";            
+                    static String TRANSACTIONS_FILE = "src/main/data/transactions.txt";
+                    static Bank bank = new Bank();
+                    public static void main(String[] args) {
+                        
+                        try {
+                            ArrayList<Account> accounts = returnAccounts();
+                            loadAccounts(accounts);
+                
+                            ArrayList<Transaction> transactions = returnTransactions();
+                            runTransactions(transactions);
+                            bank.deductTaxes();
+                            for (Account account : accounts) {
+                                System.out.println("\n\t\t\t\t\t ACCOUNT\n\n\t"+account+"\n\n");
+                                transactionHistory(account.getId());
+                            }
+                            
+                         } catch (FileNotFoundException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    
+                    }
+                
+                    public static Account createObject(String[] values) {
+                        try {
+                            return (Account)Class.forName("src.main.model.account." + values[0])
+                            .getConstructor(String.class, String.class, double.class)
+                            .newInstance(values[1], values[2], Double.parseDouble(values[3]));
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                            return null;
+                        }
+                    }
+                
+                    public static ArrayList<Account> returnAccounts() throws FileNotFoundException {
+                        FileInputStream fis = new FileInputStream(ACCOUNTS_FILE);
+                        Scanner scanFile = new Scanner(fis);
+                        ArrayList<Account> accounts = new ArrayList<Account>();
+                        while (scanFile.hasNextLine()) {
+                            accounts.add(createObject(scanFile.nextLine().split(",")));
+                        }
+                        scanFile.close();
+                        return accounts;
+                    }
+                
+                    public static ArrayList<Transaction> returnTransactions() throws FileNotFoundException {
+                        FileInputStream fis = new FileInputStream(TRANSACTIONS_FILE);
+                        Scanner scanFile = new Scanner(fis);
+                        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+                        while (scanFile.hasNextLine()) {
+                            String[] values = scanFile.nextLine().split(",");
+                            transactions.add(new Transaction(Transaction.Type.valueOf(values[1]), 
+                            Long.parseLong(values[0]), values[2], Double.parseDouble(values[3])));
+                        }
+                        scanFile.close();
+                        Collections.sort(transactions);
+                        return transactions;
+                    }
+                
+                    public static void runTransactions(ArrayList<Transaction> transactions) {
+                        for (Transaction transaction : transactions) {
+                            bank.executeTransaction(transaction);
+                        }
+                    }
+                
+                    public static void transactionHistory(String id) {
+                        System.out.print("\t\t\t\t   TRANSACTION HISTORY\n");
+                        for (Transaction transaction : bank.getTransactions(id)) {
+                            wait(300);
+                            System.out.println("\t"+transaction+"\n");
+                           }
+                           
+                           System.out.println("\n\t\t\t\t\tAFTER TAX\n");
+                           System.out.println("\t" + bank.getAccount(id) +"\n\n\n\n");
+                    }
+                
+                    public static void loadAccounts(ArrayList<Account> accounts) {
+                        for (Account account : accounts) {
+                            bank.addAccount(account);
+                        }
+                    }
+                
+                     public static void wait(int milliseconds) {
+                        try {
+                            TimeUnit.MILLISECONDS.sleep(milliseconds);
+                        } catch (InterruptedException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                
+                }
+                
+                </pre>
+            </code>
+            <h2>Experience</h2>
+            <p id="experience">None yet...</p>
+            <h2>Education</h2>
+            <ul id="education">
+                <li>codecademy &nbsp;<a class="redItalic" href="https://www.codecademy.com/learn/learn-java" target="_blank"> Learn Java</a></li>
+                <li>Udemy &nbsp;<a  class="redItalic" href="https://www.udemy.com/course/the-complete-java-development-bootcamp/" target="_blank">The Complete Java Development Bootcamp</a></li>
+                <li>Udemy &nbsp;<a class="redItalic" href="https://www.udemy.com/course/java-development-for-beginners-learnit/" target="_blank">Java From Zero to First Job</a></li>
+                <li>codecademy &nbsp;<a class="redItalic" href="https://www.codecademy.com/learn/learn-html" target="_blank">Learn HTML</a></li>
+                <li>FreeCodeCamp &nbsp;<a class="redItalic" href="https://www.freecodecamp.org/learn/responsive-web-design/" target="_blank">Responsive Web Design</a></li>
+                <li>Rolling Scopes School &nbsp;<a class="redItalic" href="https://rs.school/js-en/" target="_blank">JavaScript/Front-end Mentoring Program</a></li>
+            </ul>
+            <h2>Languages</h2>
+            <ul>
+                <li><span><img id="ukFlag" src="/Images/Flag_of_the_United_Kingdom.svg.png" alt="UK Flag"></span> English - Native</li>
+                <li><span><img id="geoFlag" src="/Images/Flag_of_Georgia.svg.webp" alt="GEO Flag"></span> Georgian - Native</li>
+            </ul>
+    
+            <footer id="footer">
+                <a href="https://github.com/NicoSurguladze" target="_blank"><img id="gitHubLogo" src="/Images/github.svg" alt="github logo"></a>
+                <p>April 2022</p>
+                <a href="https://app.rs.school/" target="_blank"><img  id="rsLogo" src="/Images/rs_school_js.svg" alt="RS School Logo"></a>
+            </footer>
+        </div>
+        
+    </body>
+
+</html>
