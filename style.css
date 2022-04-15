@@ -14,6 +14,44 @@ ul {
     padding: 0;
 }
 
+.menuButton {
+    border-style: solid;
+    border-color: rgb(176, 1, 1);
+    border-radius: 8px;
+    min-width: 100px;
+    max-width: 100px;
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    
+}
+
+.menuButtonText:link {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    
+
+    
+}
+
+.menuButtonText:visited {
+    color: rgb(0, 0, 0);
+    
+}
+
+.menuButtonText:hover {
+    color: rgb(176, 1, 1);
+}
+
+#profilePic {
+    max-width: 150px;
+    margin: 30px;
+    
+}
+
 #experience {
     font-style: italic;
 }
