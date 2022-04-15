@@ -40,10 +40,10 @@
                     public static void main(String[] args) {
                         
                         try {
-                            ArrayList&#60Account&#62 accounts = returnAccounts();
+                            ArrayList&#60;Account&#62; accounts = returnAccounts();
                             loadAccounts(accounts);
                 
-                            ArrayList&#60Transaction&#62 transactions = returnTransactions();
+                            ArrayList&#60;Transaction&#62; transactions = returnTransactions();
                             runTransactions(transactions);
                             bank.deductTaxes();
                             for (Account account : accounts) {
@@ -68,10 +68,10 @@
                         }
                     }
                 
-                    public static ArrayList&#60Account&#62 returnAccounts() throws FileNotFoundException {
+                    public static ArrayList&#60;Account&#62; returnAccounts() throws FileNotFoundException {
                         FileInputStream fis = new FileInputStream(ACCOUNTS_FILE);
                         Scanner scanFile = new Scanner(fis);
-                        ArrayList&#60Account&#62 accounts = new ArrayList&#60Account&#62();
+                        ArrayList&#60;Account&#62; accounts = new ArrayList&#60;Account&#62;();
                         while (scanFile.hasNextLine()) {
                             accounts.add(createObject(scanFile.nextLine().split(",")));
                         }
@@ -79,10 +79,10 @@
                         return accounts;
                     }
                 
-                    public static ArrayList&#60Transaction&#62 returnTransactions() throws FileNotFoundException {
+                    public static ArrayList&#60;Transaction&#62; returnTransactions() throws FileNotFoundException {
                         FileInputStream fis = new FileInputStream(TRANSACTIONS_FILE);
                         Scanner scanFile = new Scanner(fis);
-                        ArrayList&#60Transaction&#62 transactions = new ArrayList&#60Transaction&#62();
+                        ArrayList&#60;Transaction&#62; transactions = new ArrayList&#60;Transaction&#62;();
                         while (scanFile.hasNextLine()) {
                             String[] values = scanFile.nextLine().split(",");
                             transactions.add(new Transaction(Transaction.Type.valueOf(values[1]), 
@@ -93,7 +93,7 @@
                         return transactions;
                     }
                 
-                    public static void runTransactions(ArrayList&#60Transaction&#62 transactions) {
+                    public static void runTransactions(ArrayList&#60;Transaction&#62; transactions) {
                         for (Transaction transaction : transactions) {
                             bank.executeTransaction(transaction);
                         }
@@ -110,7 +110,7 @@
                            System.out.println("\t" + bank.getAccount(id) +"\n\n\n\n");
                     }
                 
-                    public static void loadAccounts(ArrayList&#60Account&#62 accounts) {
+                    public static void loadAccounts(ArrayList&#60;Account&#62; accounts) {
                         for (Account account : accounts) {
                             bank.addAccount(account);
                         }
